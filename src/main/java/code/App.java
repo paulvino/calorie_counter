@@ -8,5 +8,7 @@ public class App {
                 "  2 - Print the last month stats\n" +
                 "  3 - Change the goal for the steps per day\n" +
                 "  4 - Exit");
+
+        System.out.print("Your choice: ");
     }
 }

@@ -32,7 +32,8 @@ public class AppTest {
                         "  1 - Enter the number of steps for the day\n" +
                         "  2 - Print the last month stats\n" +
                         "  3 - Change the goal for the steps per day\n" +
-                        "  4 - Exit\n",
+                        "  4 - Exit\n" +
+                        "Your choice: ",
                 output.toString());
     }
 }
