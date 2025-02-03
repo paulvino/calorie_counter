@@ -27,6 +27,7 @@ public class AppTest {
         App app = new App();
         String[] args = new String[] {};
         app.main(args);
-        Assertions.assertEquals("Hello, world!\n", output.toString());
+        Assertions.assertEquals("Hello! This is a Calorie tracker\nWhat do you wanna do?\n",
+                output.toString());
     }
 }
