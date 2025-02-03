@@ -27,13 +27,13 @@ public class AppTest {
         App app = new App();
         String[] args = new String[] {};
         app.main(args);
-        Assertions.assertEquals("Hello! This is a Calorie tracker\n" +
-                        "Select a number from the ones below and press Enter:\n" +
-                        "  1 - Enter the number of steps for the day\n" +
-                        "  2 - Print the last month stats\n" +
-                        "  3 - Change the goal for the steps per day\n" +
-                        "  4 - Exit\n" +
-                        "Your choice: ",
+        Assertions.assertEquals("Hello! This is a Calorie tracker\n"
+                        + "Select a number from the ones below and press Enter:\n"
+                        + "  1 - Enter the number of steps for the day\n"
+                        + "  2 - Print the last month stats\n"
+                        + "  3 - Change the goal for the steps per day\n"
+                        + "  4 - Exit\n"
+                        + "Your choice: ",
                 output.toString());
     }
 }
