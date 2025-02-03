@@ -4,6 +4,11 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        run(scanner);
+    }
+
+    public static void run(Scanner scanner) {
         System.out.println("Hello! This is a Calorie tracker");
 
         var loopBreaker = true;
@@ -12,7 +17,9 @@ public class App {
             printMenu();
             System.out.print("Your choice: ");
 
-            var scanner = new Scanner(System.in);
+            if (!scanner.hasNext()) {
+                break;
+            }
             var userChoice = scanner.next();
 
             switch (userChoice) {
