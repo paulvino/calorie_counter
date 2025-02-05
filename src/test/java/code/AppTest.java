@@ -27,7 +27,7 @@ public class AppTest {
 
     @Test
     public void testPrintMenu() {
-        App.printMenu();
+        App.printMainMenu();
         Assertions.assertEquals("\nSelect a number from the ones below and press Enter:\n"
                 + "  1 - Enter the number of steps for the day\n"
                 + "  2 - Print the last month stats\n"

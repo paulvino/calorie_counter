@@ -21,7 +21,7 @@ public class App {
         // приложение будет работать (цикл не остановится)
         while (loopBreaker) {
             // метод для печати пользовательского меню
-            printMenu();
+            printMainMenu();
             // предлагаем пользователю выбрать пункт
             System.out.print("Your choice: ");
 
@@ -48,7 +48,7 @@ public class App {
     }
 
     // простой метод для вывода пользователю меню
-    public static void printMenu() {
+    public static void printMainMenu() {
         System.out.println("\nSelect a number from the ones below and press Enter:\n"
                 + "  1 - Enter the number of steps for the day\n"
                 + "  2 - Print the last month stats\n"
