@@ -14,8 +14,6 @@ public class App {
     public static void run(Scanner scanner) {
         System.out.println("Hello! This is a Calorie tracker");
 
-        StepTracker st = new StepTracker();
-
         // переменная-флаг для выхода из цикла
         var loopBreaker = true;
 
@@ -36,8 +34,7 @@ public class App {
 
             // оператор для маршрутизации по приложению в зависимости от ввода пользователя
             switch (userChoice) {
-//                case "1" -> System.out.println("Good choice");
-                case "1" -> st.askUser(scanner);
+                case "1" -> StepTracker.askUser(scanner);
                 case "2" -> System.out.println("Excellent");
                 case "3" -> System.out.println("Perfect");
                 case "0" -> System.out.println("\nSee you soon!");
