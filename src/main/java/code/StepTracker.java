@@ -63,6 +63,7 @@ public class StepTracker {
     // если введенное значение является месяцем. Если значение не является месяцем, метод возвращает -1
     public static int checkInputMonth(String input) {
         var validInput = input.trim().toLowerCase().toLowerCase();
+        int monthIndex = -1;
         // сначала проверим, является ли введенное значение строкой
         if (validInput.matches("[a-zA-z]+")) {
             // проверим, является ли введенное значение месяцем
@@ -70,7 +71,7 @@ public class StepTracker {
             for (int i = 0; i < MONTHS.length; i++) {
                 // если ввод совпал с одним из значений в массиве, то получаем "индекс" - порядковый номер месяца
                 // если не совпал, то "индекс" имеет отрицательное значение
-                int monthIndex = MONTHS[i].equalsIgnoreCase(validInput) ? i : -1;
+                monthIndex = MONTHS[i].equalsIgnoreCase(validInput) ? i : -1;
 
                 // в случае, если у нас есть положительный "индекс" (порядковый номер месяца), получаем объект
                 // этого месяца
@@ -80,7 +81,7 @@ public class StepTracker {
             }
         }
 
-        return -1;
+        return monthIndex;
     }
 
     // пользователь должен указать название месяца, номер дня и количество шагов, пройденных в этот день

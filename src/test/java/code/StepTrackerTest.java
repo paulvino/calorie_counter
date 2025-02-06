@@ -26,7 +26,9 @@ public class StepTrackerTest {
     @Test
     public void testCheckInputMonth() {
         var negativeReturn = StepTracker.checkInputMonth("test");
+        var negativeReturnNumber = StepTracker.checkInputMonth("202!#");
         Assertions.assertTrue(negativeReturn < 0);
+        Assertions.assertTrue(negativeReturnNumber < 0);
 
         var nonNegativeReturnJanuary = StepTracker.checkInputMonth("january");
         var nonNegativeReturnDecember = StepTracker.checkInputMonth(" dEcEmBeR  ");
