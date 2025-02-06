@@ -34,15 +34,19 @@ public class StepTracker {
 
             while (isIncorrect) {
                 System.out.print(QUESTIONS[i]);
-                String answer = scanner.next();
+                String answer = scanner.nextLine().trim();
 
                 int checkResult = -1;
                 switch (i) {
                     case 0 -> {
                         checkResult = checkInputMonth(answer);
                     }
-                    case 1 -> System.out.println("not ready for case 2");
-                    case 2 -> System.out.println("not ready for case 3");
+                    case 1 -> {
+                        checkResult = checkInputDay(answer);
+                    }
+                    case 2 -> {
+                        checkResult = checkInputSteps(answer);
+                    }
                     default -> System.out.println("default");
                 }
 
@@ -62,16 +66,16 @@ public class StepTracker {
     // метод проверяет, является ли введенное значение месяцем, и возвращает индекс (порядковый номер) месяца,
     // если введенное значение является месяцем. Если значение не является месяцем, метод возвращает -1
     public static int checkInputMonth(String input) {
-        var validInput = input.trim().toLowerCase().toLowerCase();
+        input = input.trim();
         int monthIndex = -1;
         // сначала проверим, является ли введенное значение строкой
-        if (validInput.matches("[a-zA-z]+")) {
+        if (input.trim().matches("[a-zA-z]+")) {
             // проверим, является ли введенное значение месяцем
             // для этого проходимся по массиву месяцев и сравниваем ввод с имеющимися в массиве значениями
             for (int i = 0; i < MONTHS.length; i++) {
                 // если ввод совпал с одним из значений в массиве, то получаем "индекс" - порядковый номер месяца
                 // если не совпал, то "индекс" имеет отрицательное значение
-                monthIndex = MONTHS[i].equalsIgnoreCase(validInput) ? i : -1;
+                monthIndex = MONTHS[i].equalsIgnoreCase(input) ? i : -1;
 
                 // в случае, если у нас есть положительный "индекс" (порядковый номер месяца), получаем объект
                 // этого месяца
@@ -82,6 +86,28 @@ public class StepTracker {
         }
 
         return monthIndex;
+    }
+
+    public static int checkInputDay(String input) {
+        int dayNumber = -1;
+        input = input.replaceAll("(?<=.)[^0-9]", "");
+        if (input.matches("[0-9-]+")) {
+            var intInputDay = Integer.parseInt(input);
+            dayNumber = (0 < intInputDay) && (intInputDay < 31) ? intInputDay : -1;
+        }
+
+        return dayNumber;
+    }
+
+    public static int checkInputSteps(String input) {
+        int stepsNumber = -1;
+        input = input.replaceAll("(?<=.)[^0-9]", "");
+        if (input.matches("[0-9-]+")) {
+            var intInputSteps = Integer.parseInt(input);
+            stepsNumber = intInputSteps >= 0 ? intInputSteps : -1;
+        }
+
+        return stepsNumber;
     }
 
     // пользователь должен указать название месяца, номер дня и количество шагов, пройденных в этот день
