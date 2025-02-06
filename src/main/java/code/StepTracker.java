@@ -46,7 +46,7 @@ public class StepTracker {
                     default -> System.out.println("default");
                 }
 
-                if (checkResult > 0) {
+                if (checkResult >= 0) {
                     answers[i] = checkResult;
                     isIncorrect = false;
                     break;
@@ -69,7 +69,7 @@ public class StepTracker {
             for (int i = 0; i < MONTHS.length; i++) {
                 // если ввод совпал с одним из значений в массиве, то получаем "индекс" - порядковый номер месяца
                 // если не совпал, то "индекс" имеет отрицательное значение
-                int monthIndex = MONTHS[i].equals(input) ? i : -1;
+                int monthIndex = MONTHS[i].equalsIgnoreCase(input) ? i : -1;
 
                 // в случае, если у нас есть положительный "индекс" (порядковый номер месяца), получаем объект
                 // этого месяца
