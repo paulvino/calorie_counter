@@ -62,7 +62,7 @@ public class StepTracker {
             }
         }
 
-        System.out.print("\nYour data has been saved! What you wanna do next?");
+        System.out.print("\n^_^ Your data has been saved! What you wanna do next?");
         return answers;
     }
 
