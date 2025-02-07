@@ -33,10 +33,12 @@ public class StepTracker {
             var isIncorrect = true;
 
             while (isIncorrect) {
+                var checkResult = -1;
                 System.out.print(QUESTIONS[i]);
-                String answer = scanner.nextLine().trim();
+                var answer = scanner.next();
+                answer += scanner.nextLine();
+                answer = answer.replaceAll("\\s+", "");
 
-                int checkResult = -1;
                 switch (i) {
                     case 0 -> {
                         checkResult = checkInputMonth(answer);
@@ -47,7 +49,7 @@ public class StepTracker {
                     case 2 -> {
                         checkResult = checkInputSteps(answer);
                     }
-                    default -> System.out.println("default");
+                    default -> System.out.println("\ndefault");
                 }
 
                 if (checkResult >= 0) {
@@ -56,10 +58,11 @@ public class StepTracker {
                     break;
                 }
 
-                System.out.println("You entered incorrect data. Lets try again.");
+                System.out.println("\nWARNING!!! You entered incorrect data. Lets try again.");
             }
         }
 
+        System.out.print("\nYour data has been saved! What you wanna do next?");
         return answers;
     }
 
