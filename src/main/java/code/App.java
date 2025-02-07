@@ -25,10 +25,10 @@ public class App {
             // предлагаем пользователю выбрать пункт
             System.out.print("Your choice: ");
 
-            // проверяем, что пользователь что-то ввел
-            if (!scanner.hasNext()) {
-                break;
-            }
+//            // проверяем, что пользователь что-то ввел
+//            if (!scanner.hasNext()) {
+//                break;
+//            }
             // присваиваем переменной userChoice значение, которое ввел пользователь
             var userChoice = scanner.next();
 

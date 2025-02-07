@@ -86,6 +86,7 @@ public class StepTrackerTest {
         Assertions.assertTrue(output.toString().contains(
                 "Enter the number of the day for which you want to add data: "));
         Assertions.assertTrue(output.toString().contains("Enter the number of steps walked: "));
+        Assertions.assertTrue(output.toString().contains("Your data has been saved! What you wanna do next?"));
 
         Assertions.assertEquals(0, result[0]);
         Assertions.assertEquals(1, result[1]);
@@ -106,9 +107,22 @@ public class StepTrackerTest {
         Assertions.assertTrue(output.toString().contains(
                 "Enter the number of the day for which you want to add data: "));
         Assertions.assertTrue(output.toString().contains("Enter the number of steps walked: "));
+        Assertions.assertTrue(output.toString().contains("Your data has been saved! What you wanna do next?"));
 
         Assertions.assertEquals(11, result[0]);
         Assertions.assertEquals(30, result[1]);
         Assertions.assertEquals(50000, result[2]);
+    }
+
+    @Test
+    public void testAskUserIncorrectData() {
+        ByteArrayInputStream input = new ByteArrayInputStream("RRRRR\nmay\n30\n50 000\n".getBytes());
+        System.setIn(input);
+
+        Scanner scanner = new Scanner(System.in);
+
+        StepTracker.askUser(scanner);
+
+        Assertions.assertTrue(output.toString().contains("WARNING!!! You entered incorrect data. Lets try again."));
     }
 }

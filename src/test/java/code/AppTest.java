@@ -49,4 +49,17 @@ public class AppTest {
         Assertions.assertTrue(output.toString().contains("You entered wrong number, try again"));
         Assertions.assertTrue(output.toString().contains("See you soon!"));
     }
+
+    @Test
+    public void testRunOne() {
+        ByteArrayInputStream input = new ByteArrayInputStream("1\nJanuary\n15\n10000\n0\n".getBytes());
+        System.setIn(input);
+
+        Scanner scanner = new Scanner(input);
+
+        App.run(scanner);
+
+        Assertions.assertTrue(output.toString().contains(
+                "Enter the name of the month for which you want to add data: "));
+    }
 }

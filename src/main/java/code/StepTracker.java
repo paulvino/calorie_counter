@@ -62,7 +62,7 @@ public class StepTracker {
             }
         }
 
-        System.out.print("\n^_^ Your data has been saved! What you wanna do next?");
+        System.out.print("\nYour data has been saved! What you wanna do next?");
         return answers;
     }
 
@@ -112,11 +112,6 @@ public class StepTracker {
 
         return stepsNumber;
     }
-
-    // пользователь должен указать название месяца, номер дня и количество шагов, пройденных в этот день
-    // количество шагов должно быть не отрицательным
-    // в месяце ровно 30 дней
-    // если статистики за день нет, количество шагов равно нулю
 
     class MonthData {
         String monthName;
