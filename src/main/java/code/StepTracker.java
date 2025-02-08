@@ -1,5 +1,6 @@
 package code;
 
+//import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -24,7 +25,7 @@ public class StepTracker {
         }
     }
 
-    // метод для вопросов пользователю
+    // метод для вывода на экран вопросов пользователю
     public static int[] askUser(Scanner scanner) {
 
         int[] answers = new int[3];
@@ -65,6 +66,29 @@ public class StepTracker {
         System.out.print("\nYour data has been saved! What you wanna do next?");
         return answers;
     }
+//
+//    // метод для отображения статистики пользователю за конкретный выбранный им месяц
+//    public static void printStats(Scanner scanner) {
+//        System.out.println("\nSpecify the name of the month for which you want to output statistics and press Enter");
+//
+//        var stats = new ArrayList<>();
+//
+//        var answer = scanner.next();
+//        answer += answer.replaceAll("\\s+", "");
+//
+//        boolean isIncorrect = true;
+//
+//        while (isIncorrect) {
+//
+//
+//
+//            if (!isIncorrect) {
+//                break;
+//            }
+//
+//            System.out.println("\nWARNING!!! You entered incorrect month. Lets try again.");
+//        }
+//    }
 
     class MonthData {
         String monthName;

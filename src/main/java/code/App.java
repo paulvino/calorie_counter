@@ -32,6 +32,7 @@ public class App {
             switch (userChoice) {
                 case "1" -> StepTracker.askUser(scanner);
                 case "2" -> System.out.println("Excellent");
+//                case "2" -> StepTracker.printStats(scanner);
                 case "3" -> System.out.println("Perfect");
                 case "0" -> System.out.println("\nSee you soon!");
                 // стандартное значение на случай, если ввод некорректен
