@@ -6,3 +6,5 @@
 Calorie Counter is a simple program that allows you to keep track of the number of steps per day.
 
 It is a study project, mainly for fun.
+
+Eventually Calorie Counter will contain your data (number of steps per day) and return you the statistics about burnt calories.
