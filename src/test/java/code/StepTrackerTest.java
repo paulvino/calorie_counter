@@ -108,6 +108,7 @@ public class StepTrackerTest {
         st.printStats(scanner);
 
         Assertions.assertTrue(output.toString().contains("WARNING!!! You entered incorrect month. Lets try again."));
+        Assertions.assertTrue(output.toString().contains("Total number of steps walked in May: 0"));
     }
 
     @Test
