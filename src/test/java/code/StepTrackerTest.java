@@ -98,6 +98,19 @@ public class StepTrackerTest {
     }
 
     @Test
+    public void testPrintStatsIncorrectMonth() {
+        ByteArrayInputStream input = new ByteArrayInputStream("qwerty\nmay\n".getBytes());
+        System.setIn(input);
+
+        Scanner scanner = new Scanner(System.in);
+
+        StepTracker st = new StepTracker();
+        st.printStats(scanner);
+
+        Assertions.assertTrue(output.toString().contains("WARNING!!! You entered incorrect month. Lets try again."));
+    }
+
+    @Test
     public void testPrintStatsNotEmptyFirstDay() {
         ByteArrayInputStream inputData = new ByteArrayInputStream("may\n1\n100\n".getBytes());
         ByteArrayInputStream inputStat = new ByteArrayInputStream("may\n".getBytes());
