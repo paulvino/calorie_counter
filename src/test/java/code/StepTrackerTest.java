@@ -81,7 +81,7 @@ public class StepTrackerTest {
     }
 
     @Test
-    public void testPrintStats() {
+    public void testPrintStatsEmpty() {
         ByteArrayInputStream input = new ByteArrayInputStream("may\n".getBytes());
         System.setIn(input);
 
@@ -94,5 +94,39 @@ public class StepTrackerTest {
         Assertions.assertTrue(output.toString().contains("26 день: 0, 27 день: 0, 28 день: 0, 29 день: 0, 30 день: 0"));
         Assertions.assertFalse(output.toString().contains("31 день"));
         Assertions.assertFalse(output.toString().contains("-1 день"));
+    }
+
+    @Test
+    public void testPrintStatsNotEmptyFirstDay() {
+        ByteArrayInputStream inputData = new ByteArrayInputStream("may\n1\n100\n".getBytes());
+        ByteArrayInputStream inputStat = new ByteArrayInputStream("may\n".getBytes());
+        System.setIn(inputData);
+
+        Scanner scannerData = new Scanner(System.in);
+        StepTracker st = new StepTracker();
+        st.askUser(scannerData);
+
+        System.setIn(inputStat);
+        Scanner scannerStat = new Scanner(System.in);
+        st.printStats(scannerStat);
+
+        Assertions.assertTrue(output.toString().contains("1 день: 100, 2 день: 0, "));
+    }
+
+    @Test
+    public void testPrintStatsNotEmptyThirtiethDay() {
+        ByteArrayInputStream inputData = new ByteArrayInputStream("december\n30\n3000\n".getBytes());
+        ByteArrayInputStream inputStat = new ByteArrayInputStream("december\n".getBytes());
+        System.setIn(inputData);
+
+        Scanner scannerData = new Scanner(System.in);
+        StepTracker st = new StepTracker();
+        st.askUser(scannerData);
+
+        System.setIn(inputStat);
+        Scanner scannerStat = new Scanner(System.in);
+        st.printStats(scannerStat);
+
+        Assertions.assertTrue(output.toString().contains("30 день: 3000"));
     }
 }
