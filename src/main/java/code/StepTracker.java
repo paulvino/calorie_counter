@@ -98,6 +98,10 @@ public class StepTracker {
                 System.out.print(", ");
             }
         }
+
+        var currentMonthName = currentMonth.getMonthName();
+        var currentMonthTotalSteps = currentMonth.getTotalSteps();
+        System.out.println("\nTotal number of steps walked in " + currentMonthName + ": " + currentMonthTotalSteps);
     }
 
     class MonthData {
@@ -114,8 +118,20 @@ public class StepTracker {
             MonthData.this.monthName = monthName;
         }
 
-        public void setStepsPerDay(int dayNumber, int numberOfSteps) {
+        public String getMonthName() {
+            return MonthData.this.monthName;
+        }
+
+        private void setStepsPerDay(int dayNumber, int numberOfSteps) {
             MonthData.this.stepsPerDay.put(dayNumber, numberOfSteps);
+        }
+
+        public int getTotalSteps() {
+            int total = 0;
+            for (int i : MonthData.this.stepsPerDay.keySet()) {
+                total += stepsPerDay.get(i);
+            }
+            return total;
         }
 
         public HashMap<Integer, Integer> getStepsPerDay() {

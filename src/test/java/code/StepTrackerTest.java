@@ -92,6 +92,7 @@ public class StepTrackerTest {
 
         Assertions.assertTrue(output.toString().contains("1 день: 0, 2 день: 0, 3 день: 0, 4 день: 0, 5 день: 0"));
         Assertions.assertTrue(output.toString().contains("26 день: 0, 27 день: 0, 28 день: 0, 29 день: 0, 30 день: 0"));
+        Assertions.assertTrue(output.toString().contains("Total number of steps walked in May: 0"));
         Assertions.assertFalse(output.toString().contains("31 день"));
         Assertions.assertFalse(output.toString().contains("-1 день"));
     }
@@ -111,6 +112,7 @@ public class StepTrackerTest {
         st.printStats(scannerStat);
 
         Assertions.assertTrue(output.toString().contains("1 день: 100, 2 день: 0, "));
+        Assertions.assertTrue(output.toString().contains("Total number of steps walked in May: 100"));
     }
 
     @Test
@@ -128,5 +130,6 @@ public class StepTrackerTest {
         st.printStats(scannerStat);
 
         Assertions.assertTrue(output.toString().contains("30 день: 3000"));
+        Assertions.assertTrue(output.toString().contains("Total number of steps walked in December: 3000"));
     }
 }
