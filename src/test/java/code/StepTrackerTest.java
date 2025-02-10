@@ -79,4 +79,20 @@ public class StepTrackerTest {
 
         Assertions.assertTrue(output.toString().contains("WARNING!!! You entered incorrect data. Lets try again."));
     }
+
+    @Test
+    public void testPrintStats() {
+        ByteArrayInputStream input = new ByteArrayInputStream("may\n".getBytes());
+        System.setIn(input);
+
+        Scanner scanner = new Scanner(System.in);
+
+        StepTracker st = new StepTracker();
+        st.printStats(scanner);
+
+        Assertions.assertTrue(output.toString().contains("1 день: 0, 2 день: 0, 3 день: 0, 4 день: 0, 5 день: 0"));
+        Assertions.assertTrue(output.toString().contains("26 день: 0, 27 день: 0, 28 день: 0, 29 день: 0, 30 день: 0"));
+        Assertions.assertFalse(output.toString().contains("31 день"));
+        Assertions.assertFalse(output.toString().contains("-1 день"));
+    }
 }
