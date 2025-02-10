@@ -69,13 +69,12 @@ public class StepTracker {
         // сохраняем полученные от пользователя ответы в MonthData()
         var currentMonth = getMonthToData().get(answers[0]);
         currentMonth.setStepsPerDay(answers[1], answers[2]);
-
         System.out.print("\nSUCCESS! Your data has been saved. What you wanna do next?");
     }
 
     // метод для отображения статистики пользователю за конкретный выбранный им месяц
     public void printStats(Scanner scanner) {
-        System.out.println("\nSpecify the name of the month for which you want to output statistics and press Enter");
+        System.out.print("\nSpecify the name of the month for which you want to see statistics and press Enter: ");
 
         var monthNumber = -1;
         boolean isIncorrect = true;
@@ -83,9 +82,7 @@ public class StepTracker {
         while (isIncorrect) {
             var answer = scanner.next();
             monthNumber = UsersInputChecker.checkInputMonth(answer);
-
             isIncorrect = monthNumber < 0;
-
             if (!isIncorrect) {
                 break;
             }
@@ -93,24 +90,28 @@ public class StepTracker {
         }
 
         var currentMonth = getMonthToData().get(monthNumber);
+        var stepsPerDay = currentMonth.getStepsPerDay();
 
-        System.out.println("name: " + currentMonth.monthName + " steps: " + currentMonth.stepsPerDay);
+        for (int i = 1; i < 31; i++) {
+            System.out.print(i + " день: " + stepsPerDay.getOrDefault(i, 0));
+            if (i < 30) {
+                System.out.print(", ");
+            }
+        }
     }
 
     class MonthData {
         String monthName;
-        HashMap<Integer, Integer> stepsPerDay;
+        HashMap<Integer, Integer> stepsPerDay = new HashMap<>();
 
         MonthData() {
-            this.stepsPerDay = new HashMap<>();
+            for (int i = 1; i < 31; i++) {
+                stepsPerDay.put(i, 0);
+            }
         }
 
-        public void setMonthName(String monthName) {
+        private void setMonthName(String monthName) {
             MonthData.this.monthName = monthName;
-        }
-
-        public String getMonthName() {
-            return this.monthName;
         }
 
         public void setStepsPerDay(int dayNumber, int numberOfSteps) {

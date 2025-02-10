@@ -30,7 +30,7 @@ public class AppTest {
         App.printMainMenu();
         Assertions.assertEquals("\nSelect a number from the ones below and press Enter:\n"
                 + "  1 - Enter the number of steps for the day\n"
-                + "  2 - Print the last month stats\n"
+                + "  2 - Print the month stats\n"
                 + "  3 - Change the goal for the steps per day\n"
                 + "  0 - Exit\n", output.toString());
     }

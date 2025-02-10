@@ -32,7 +32,6 @@ public class App {
             // оператор для маршрутизации по приложению в зависимости от ввода пользователя
             switch (userChoice) {
                 case "1" -> st.askUser(scanner);
-//                case "2" -> System.out.println("Excellent");
                 case "2" -> st.printStats(scanner);
                 case "3" -> System.out.println("Perfect");
                 case "0" -> System.out.println("\nSee you soon!");
@@ -49,7 +48,7 @@ public class App {
     public static void printMainMenu() {
         System.out.println("\nSelect a number from the ones below and press Enter:\n"
                 + "  1 - Enter the number of steps for the day\n"
-                + "  2 - Print the last month stats\n"
+                + "  2 - Print the month stats\n"
                 + "  3 - Change the goal for the steps per day\n"
                 + "  0 - Exit");
     }
