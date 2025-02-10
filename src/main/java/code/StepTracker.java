@@ -1,6 +1,5 @@
 package code;
 
-//import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -25,8 +24,12 @@ public class StepTracker {
         }
     }
 
+    public HashMap<Integer, MonthData> getMonthToData() {
+        return this.monthToData;
+    }
+
     // метод для вывода на экран вопросов пользователю
-    public static int[] askUser(Scanner scanner) {
+    public void askUser(Scanner scanner) {
 
         int[] answers = new int[3];
 
@@ -63,36 +66,44 @@ public class StepTracker {
             }
         }
 
-        System.out.print("\nYour data has been saved! What you wanna do next?");
-        return answers;
+        // сохраняем полученные от пользователя ответы в MonthData()
+        var currentMonth = getMonthToData().get(answers[0]);
+        currentMonth.setStepsPerDay(answers[1], answers[2]);
+
+        System.out.print("\nSUCCESS! Your data has been saved. What you wanna do next?");
     }
-//
-//    // метод для отображения статистики пользователю за конкретный выбранный им месяц
-//    public static void printStats(Scanner scanner) {
-//        System.out.println("\nSpecify the name of the month for which you want to output statistics and press Enter");
-//
-//        var stats = new ArrayList<>();
-//
-//        var answer = scanner.next();
-//        answer += answer.replaceAll("\\s+", "");
-//
-//        boolean isIncorrect = true;
-//
-//        while (isIncorrect) {
-//
-//
-//
-//            if (!isIncorrect) {
-//                break;
-//            }
-//
-//            System.out.println("\nWARNING!!! You entered incorrect month. Lets try again.");
-//        }
-//    }
+
+    // метод для отображения статистики пользователю за конкретный выбранный им месяц
+    public void printStats(Scanner scanner) {
+        System.out.println("\nSpecify the name of the month for which you want to output statistics and press Enter");
+
+        var monthNumber = -1;
+        boolean isIncorrect = true;
+
+        while (isIncorrect) {
+            var answer = scanner.next();
+            monthNumber = UsersInputChecker.checkInputMonth(answer);
+
+            isIncorrect = monthNumber < 0;
+
+            if (!isIncorrect) {
+                break;
+            }
+            System.out.println("\nWARNING!!! You entered incorrect month. Lets try again.");
+        }
+
+        var currentMonth = getMonthToData().get(monthNumber);
+
+        System.out.println("name: " + currentMonth.monthName + " steps: " + currentMonth.stepsPerDay);
+    }
 
     class MonthData {
         String monthName;
         HashMap<Integer, Integer> stepsPerDay;
+
+        MonthData() {
+            this.stepsPerDay = new HashMap<>();
+        }
 
         public void setMonthName(String monthName) {
             MonthData.this.monthName = monthName;

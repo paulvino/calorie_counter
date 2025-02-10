@@ -12,6 +12,7 @@ public class App {
 
     // основной первичный метод приложения с логикой "меню"
     public static void run(Scanner scanner) {
+        StepTracker st = new StepTracker();
         System.out.println("Hello! This is a Calorie tracker");
 
         // переменная-флаг для выхода из цикла
@@ -30,9 +31,9 @@ public class App {
 
             // оператор для маршрутизации по приложению в зависимости от ввода пользователя
             switch (userChoice) {
-                case "1" -> StepTracker.askUser(scanner);
-                case "2" -> System.out.println("Excellent");
-//                case "2" -> StepTracker.printStats(scanner);
+                case "1" -> st.askUser(scanner);
+//                case "2" -> System.out.println("Excellent");
+                case "2" -> st.printStats(scanner);
                 case "3" -> System.out.println("Perfect");
                 case "0" -> System.out.println("\nSee you soon!");
                 // стандартное значение на случай, если ввод некорректен

@@ -37,14 +37,13 @@ public class AppTest {
 
     @Test
     public void testRun() {
-        ByteArrayInputStream input = new ByteArrayInputStream("2\n3\n4\none\n0\n".getBytes());
+        ByteArrayInputStream input = new ByteArrayInputStream("3\n4\none\n0\n".getBytes());
         System.setIn(input);
 
         Scanner scanner = new Scanner(System.in);
 
         App.run(scanner);
 
-        Assertions.assertTrue(output.toString().contains("Excellent"));
         Assertions.assertTrue(output.toString().contains("Perfect"));
         Assertions.assertTrue(output.toString().contains("You entered wrong number, try again"));
         Assertions.assertTrue(output.toString().contains("See you soon!"));
