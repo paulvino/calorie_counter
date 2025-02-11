@@ -109,6 +109,7 @@ public class StepTrackerTest {
 
         Assertions.assertTrue(output.toString().contains("WARNING!!! You entered incorrect month. Lets try again."));
         Assertions.assertTrue(output.toString().contains("Total number of steps walked in May: 0"));
+        Assertions.assertTrue(output.toString().contains("Maximum number of steps walked in May: 0"));
     }
 
     @Test
@@ -127,6 +128,7 @@ public class StepTrackerTest {
 
         Assertions.assertTrue(output.toString().contains("1 день: 100, 2 день: 0, "));
         Assertions.assertTrue(output.toString().contains("Total number of steps walked in May: 100"));
+        Assertions.assertTrue(output.toString().contains("Maximum number of steps walked in May: 100"));
     }
 
     @Test
@@ -145,5 +147,6 @@ public class StepTrackerTest {
 
         Assertions.assertTrue(output.toString().contains("30 день: 3000"));
         Assertions.assertTrue(output.toString().contains("Total number of steps walked in December: 3000"));
+        Assertions.assertTrue(output.toString().contains("Maximum number of steps walked in December: 3000"));
     }
 }

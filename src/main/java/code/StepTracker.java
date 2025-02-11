@@ -101,7 +101,9 @@ public class StepTracker {
 
         var currentMonthName = currentMonth.getMonthName();
         var currentMonthTotalSteps = currentMonth.getTotalSteps();
+        var currentMonthMaxSteps = currentMonth.getMaxSteps();
         System.out.println("\nTotal number of steps walked in " + currentMonthName + ": " + currentMonthTotalSteps);
+        System.out.println("\nMaximum number of steps walked in " + currentMonthName + ": " + currentMonthMaxSteps);
     }
 
     class MonthData {
@@ -126,6 +128,10 @@ public class StepTracker {
             MonthData.this.stepsPerDay.put(dayNumber, numberOfSteps);
         }
 
+        public HashMap<Integer, Integer> getStepsPerDay() {
+            return this.stepsPerDay;
+        }
+
         public int getTotalSteps() {
             int total = 0;
             for (int i : MonthData.this.stepsPerDay.keySet()) {
@@ -134,8 +140,12 @@ public class StepTracker {
             return total;
         }
 
-        public HashMap<Integer, Integer> getStepsPerDay() {
-            return this.stepsPerDay;
+        public int getMaxSteps() {
+            int max = 0;
+            for (int i : MonthData.this.stepsPerDay.keySet()) {
+                max = stepsPerDay.get(i) > max ? stepsPerDay.get(i) : max;
+            }
+            return max;
         }
     }
 }
