@@ -102,8 +102,10 @@ public class StepTracker {
         var currentMonthName = currentMonth.getMonthName();
         var currentMonthTotalSteps = currentMonth.getTotalSteps();
         var currentMonthMaxSteps = currentMonth.getMaxSteps();
+        var currentMonthAverageSteps = currentMonth.getAverageSteps();
         System.out.println("\nTotal number of steps walked in " + currentMonthName + ": " + currentMonthTotalSteps);
         System.out.println("\nMaximum number of steps walked in " + currentMonthName + ": " + currentMonthMaxSteps);
+        System.out.println("\nAverage number of steps walked in " + currentMonthName + ": " + currentMonthAverageSteps);
     }
 
     class MonthData {
@@ -146,6 +148,10 @@ public class StepTracker {
                 max = stepsPerDay.get(i) > max ? stepsPerDay.get(i) : max;
             }
             return max;
+        }
+
+        public double getAverageSteps() {
+            return ((double) getTotalSteps() / stepsPerDay.size());
         }
     }
 }
