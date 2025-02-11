@@ -7,7 +7,7 @@ public class Converter {
     }
 
     public static double kcalBurned(int steps) {
-        double oneStepKcal = 50;
-        return (double) steps * oneStepKcal;
+        double oneStepCal = 50;
+        return (double) (steps * oneStepCal) / 1000;
     }
 }

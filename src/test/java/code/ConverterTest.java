@@ -25,12 +25,12 @@ public class ConverterTest {
         Assertions.assertEquals(0.0, zeroSteps);
 
         var tenSteps = Converter.kcalBurned(10);
-        Assertions.assertEquals(500.0, tenSteps);
+        Assertions.assertEquals(0.5, tenSteps);
 
         var oneMillionSteps = Converter.kcalBurned(1000000);
-        Assertions.assertEquals(50000000.0, oneMillionSteps);
+        Assertions.assertEquals(50000.0, oneMillionSteps);
 
         var twoHundredFiftyFourThousandFiveHundredTwentyThree = Converter.kcalBurned(254523);
-        Assertions.assertEquals(12726150.0, twoHundredFiftyFourThousandFiveHundredTwentyThree);
+        Assertions.assertEquals(12726.15, twoHundredFiftyFourThousandFiveHundredTwentyThree);
     }
 }

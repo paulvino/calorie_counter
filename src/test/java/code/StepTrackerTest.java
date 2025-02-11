@@ -138,7 +138,7 @@ public class StepTrackerTest {
         Assertions.assertTrue(output.toString().contains("Maximum number of steps walked in May: 100"));
         Assertions.assertTrue(output.toString().contains("Average number of steps walked in May: 3.3333333333333335"));
         Assertions.assertTrue(output.toString().contains("Distance in kilometers walked in May: 0.075"));
-        Assertions.assertTrue(output.toString().contains("Kilocalories burned in May: 5000.0"));
+        Assertions.assertTrue(output.toString().contains("Kilocalories burned in May: 5.0"));
     }
 
     @Test
@@ -160,6 +160,6 @@ public class StepTrackerTest {
         Assertions.assertTrue(output.toString().contains("Maximum number of steps walked in December: 3000"));
         Assertions.assertTrue(output.toString().contains("Average number of steps walked in December: 100"));
         Assertions.assertTrue(output.toString().contains("Distance in kilometers walked in December: 2.25"));
-        Assertions.assertTrue(output.toString().contains("Kilocalories burned in December: 150000.0"));
+        Assertions.assertTrue(output.toString().contains("Kilocalories burned in December: 150.0"));
     }
 }
