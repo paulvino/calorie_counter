@@ -18,4 +18,19 @@ public class ConverterTest {
         var twoHundredFiftyFourThousandFiveHundredTwentyThree = Converter.convertStepsToKilometers(254523);
         Assertions.assertEquals(190.89225, twoHundredFiftyFourThousandFiveHundredTwentyThree);
     }
+
+    @Test
+    public void testKcalBurned() {
+        var zeroSteps = Converter.kcalBurned(0);
+        Assertions.assertEquals(0.0, zeroSteps);
+
+        var tenSteps = Converter.kcalBurned(10);
+        Assertions.assertEquals(500.0, tenSteps);
+
+        var oneMillionSteps = Converter.kcalBurned(1000000);
+        Assertions.assertEquals(50000000.0, oneMillionSteps);
+
+        var twoHundredFiftyFourThousandFiveHundredTwentyThree = Converter.kcalBurned(254523);
+        Assertions.assertEquals(12726150.0, twoHundredFiftyFourThousandFiveHundredTwentyThree);
+    }
 }

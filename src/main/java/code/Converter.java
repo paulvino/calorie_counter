@@ -5,4 +5,9 @@ public class Converter {
         double oneStepInKilometers = 0.00075;
         return (double) steps * oneStepInKilometers;
     }
+
+    public static double kcalBurned(int steps) {
+        double oneStepKcal = 50;
+        return (double) steps * oneStepKcal;
+    }
 }
