@@ -103,9 +103,11 @@ public class StepTracker {
         var currentMonthTotalSteps = currentMonth.getTotalSteps();
         var currentMonthMaxSteps = currentMonth.getMaxSteps();
         var currentMonthAverageSteps = currentMonth.getAverageSteps();
+        var currentMonthInKilometers = Converter.convertStepsToKilometers(currentMonthTotalSteps);
         System.out.println("\nTotal number of steps walked in " + currentMonthName + ": " + currentMonthTotalSteps);
         System.out.println("\nMaximum number of steps walked in " + currentMonthName + ": " + currentMonthMaxSteps);
         System.out.println("\nAverage number of steps walked in " + currentMonthName + ": " + currentMonthAverageSteps);
+        System.out.println("\nDistance in kilometers walked in " + currentMonthName + ": " + currentMonthInKilometers);
     }
 
     class MonthData {
