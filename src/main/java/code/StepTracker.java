@@ -15,7 +15,9 @@ public class StepTracker {
 
     HashMap<Integer, MonthData> monthToData = new HashMap<>();
 
+    // конструктор класса
     public StepTracker() {
+        // при инициализации класса StepTracker автоматически создаются 12 экземпляров класса MonthData
         for (int i = 0; i < 12; i++) {
             monthToData.put(i, new MonthData());
 
