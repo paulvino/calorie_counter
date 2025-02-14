@@ -33,18 +33,27 @@ public class StepTracker {
     // метод для вывода на экран вопросов пользователю
     public void askUser(Scanner scanner) {
 
+        // массив, в котором агрегируем валидную информацию от пользователя
         int[] answers = new int[3];
 
+        // проходимся по массиву вопросов
         for (int i = 0; i < QUESTIONS.length; i++) {
             var isIncorrect = true;
 
+            // по умолчанию считаем, что пользователь ввел некорректные данные, если это не так – ниже флаг меняется
+            // на false
             while (isIncorrect) {
+                // переменная для хранения результата определения корректности пользовательского ввода
                 var checkResult = -1;
+                // вывод на экран вопроса пользователю
                 System.out.print(QUESTIONS[i]);
+
+                // получение ответа пользователя и его обработка
                 var answer = scanner.next();
                 answer += scanner.nextLine();
                 answer = answer.replaceAll("\\s+", "");
 
+                // switch для вызова проверочных методов (проверяем пользовательский ввод на корректность)
                 switch (i) {
                     case 0 -> {
                         checkResult = UsersInputChecker.checkInputMonth(answer);
